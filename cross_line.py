@@ -31,4 +31,4 @@ for i in range(vs.NumSObj(vs.ActLayer())): #アクティブレイヤ上で選択
 
 
 vs.DSelectAll() #全ての選択を解除
-vs.SelectObj("INSYMBOL & INVIEWPORT & (T=GROUP)") #グループ図形を選択
+vs.SelectObj("T=GROUP") #グループ図形を選択
