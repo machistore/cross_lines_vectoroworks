@@ -1,4 +1,4 @@
-#Created by K.Machida Mar. 2023.
+#Created by Katsutoshi Machida Mar. 2023.
 import vs
 
 
