@@ -22,13 +22,17 @@ def cross_line(sobj):
 	vs.EndGroup() #ここまでのオブジェクトをグループにする
 
 
-sobj = vs.FSActLayer() #アクティブレイヤ上で選択したオブジェクトの最も上のオブジェクトのハンドルをsobjとする
+def execute():
+	sobj = vs.FSActLayer() #アクティブレイヤ上で選択したオブジェクトの最も上のオブジェクトのハンドルをsobjとする
 
 
-for i in range(vs.NumSObj(vs.ActLayer())): #アクティブレイヤ上で選択されたオブジェクトの数だけ以下のforでくくった実行文を繰り返し実行する
-	cross_line(sobj) #先に定義したcross_line(sobj)を25行目で選択したオブジェクトに実行する
-	sobj = vs.NextSObj(sobj) #25行目で選択したオブジェクトの次のオブジェクトをsobjとする->28行目のrange()でカウントした数だけ29行目と30行目を繰り返す
+	for i in range(vs.NumSObj(vs.ActLayer())): #アクティブレイヤ上で選択されたオブジェクトの数だけ以下のforでくくった実行文を繰り返し実行する
+		cross_line(sobj) #先に定義したcross_line(sobj)を25行目で選択したオブジェクトに実行する
+		sobj = vs.NextSObj(sobj) #25行目で選択したオブジェクトの次のオブジェクトをsobjとする->28行目のrange()でカウントした数だけ29行目と30行目を繰り返す
 
 
-vs.DSelectAll() #全ての選択を解除
-vs.SelectObj("T=GROUP") #グループ図形を選択
+	vs.DSelectAll() #全ての選択を解除
+	vs.SelectObj("T=GROUP") #グループ図形を選択
+
+
+execute()
