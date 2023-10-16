@@ -8,6 +8,7 @@ def execute():
     OBJECTS = []
     POLYGONS = []
 
+
     def collect(handle):
         OBJECTS.append(handle)
 
@@ -46,9 +47,9 @@ def execute():
                 vs.LineTo(p)
 		
         vs.EndGroup()
-
 		# 複製された多角形オブジェクトを削除
         vs.DelObject(poly)
+
 
 if __name__ == "__main__":
     execute()
