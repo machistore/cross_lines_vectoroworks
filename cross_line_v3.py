@@ -8,6 +8,8 @@ def execute():
     OBJECTS = []
     POLYGONS = []
 
+    # 現在の属性の設定を記憶する
+    vs.PushAttrs()
 
     def collect(handle):
         OBJECTS.append(handle)
@@ -15,10 +17,9 @@ def execute():
     vs.ForEachObject(collect, '((VSEL=TRUE))')
 
     for obj in OBJECTS:
-        # オブジェクトが四角形または頂点数が4つの多角形でなければ選択を解除
+        # オブジェクトが四角形または頂点数が4つの多角形でなければ選択を解除する
         if not(vs.GetTypeN(obj) == 3 or (vs.GetTypeN(obj) == 5 and vs.GetVertNum(obj) == 4)):
             vs.SetDSelect(obj)
-            #vs.AlertInform('対象図形は選択されていませんでした	。', '※対象となる図形は四角形オブジェクトと\n頂点を4つ持つ多角形オブジェクトです', False)
 
         else:
             # 四角形または頂点数が4つの多角形を多角形に変換
@@ -50,6 +51,8 @@ def execute():
         # 複製された多角形オブジェクトを削除
         vs.DelObject(poly)
 
+    # 記憶されている属性を現在の設定にする
+    vs.PopAttrs()
 
 if __name__ == "__main__":
     execute()
