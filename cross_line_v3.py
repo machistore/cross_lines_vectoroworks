@@ -11,6 +11,9 @@ def execute():
     # 現在の属性の設定を記憶する
     vs.PushAttrs()
 
+    # アクティブなレイヤのハンドルを取得しactlayerに代入する
+    actlayer = vs.ActLayer()
+
     def collect(handle):
         OBJECTS.append(handle)
 
@@ -32,7 +35,7 @@ def execute():
     # 全てのオブジェクトの選択を解除
     vs.ForEachObject(vs.SetDSelect, '((SEL=TRUE))')
 
-	# 多角形に変換したオブジェクトだけを選択
+    # 多角形に変換したオブジェクトだけを選択
     for poly in POLYGONS:
         vs.SetSelect(poly)
         # 選択しているポリゴンと同じレイヤをアクティブにする
@@ -53,6 +56,9 @@ def execute():
 
     # 記憶されている属性を現在の設定にする
     vs.PopAttrs()
+
+    # レイヤの設定をコマンド実行前と同じレイヤに設定する
+    vs.Layer(vs.GetLName(actlayer))
 
 if __name__ == "__main__":
     execute()
