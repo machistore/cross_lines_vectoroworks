@@ -1,4 +1,6 @@
-#Created by Katsutoshi Machida Mar. 2023.
+# Created by Katsutoshi Machida Mar. 2023.
+# Edited by Katsutoshi Machida Oct. 2023.
+
 import vs
 
 # 対角線を作成するコマンドクラス
