@@ -16,11 +16,12 @@ class CreateDiagonalsCommand:
         for obj in self.objects:
             # オブジェクトが2D四角形または4つの頂点を持つ2D多角形であるか確認
             if vs.GetTypeN(obj) == 3 or (vs.GetTypeN(obj) == 5 and vs.GetVertNum(obj) == 4):
-                # オブジェクトを2D多角形に変換し、複製されたオブジェクトをリストに追加
+                # 選択されているオブジェクト(obj)と同じレイヤをアクティブにする
+                vs.Layer(vs.GetLName(vs.GetLayer(obj)))
+                # オブジェクトと同じ2D多角形を複製(変換)する
                 poly = vs.ConvertToPolygon(obj, 8)
-                if poly:
-                    vs.SetParent(poly, vs.GetLayer(obj))
-                    self.polygons.append(poly)
+                # 複製されたオブジェクトをリストに追加
+                self.polygons.append(poly)
 
     def create_diagonals(self):
         # 2D多角形オブジェクトに対角線を描く
