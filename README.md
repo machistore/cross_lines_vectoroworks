@@ -4,12 +4,15 @@ A Python script that draws two crossing lines on a 2D object.
 
 ## Demo
 
-https://user-images.githubusercontent.com/104885577/223727675-010b5ef7-fc59-4c0d-8460-70a5c13feeac.mp4
+
+
+https://github.com/machistore/cross_lines_vectoroworks/assets/104885577/1888ecba-a629-457f-9f37-771ab579b922
+
+
 
 ## Note
 
-コマンド実行後にグループオブジェクトだけ選択された状態になりますが、    
-生成されたクロスラインだけでなく、コマンド実行前に選択していたグループオブジェクトも選択された状態でコマンド実行が終わります。
+表示状態のレイヤで選択されている「四角形」と「頂点数が4つの多角形」に対して対角線が引かれるコマンドです。
 
 ## Author
 
